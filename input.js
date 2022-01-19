@@ -1,5 +1,7 @@
 const { stdin } = require('process');
+const {movementOuput, actionMapping} = require("./constants");
 
+const availableActions = Object.keys(actionMapping);
 
 let connection;
 
@@ -20,38 +22,11 @@ const handleUserInput = function(key) {
     process.exit();
   }
 
-  if (key === "w") {
-    console.log("moved up");
-    connection.write("Move: up");
-  }
-  if (key === "a") {
-    console.log("moved left");
-    connection.write("Move: left");
+  if (availableActions.includes(key)) {
+    console.log(movementOuput[key]);
+    connection.write(actionMapping[key]);
 
   }
-  if (key === "s") {
-    console.log("moved down");
-    connection.write("Move: down");
-
-  }
-  if (key === "d") {
-    console.log("moved right");
-    connection.write("Move: right");
-
-  }
-
-  if (key === "p") {
-    connection.write("Say: LOL");
-  }
-
-  if (key === "o") {
-    connection.write("Say: NOO");
-  }
-
-  if (key === "i") {
-    connection.write("Say: HII");
-  }
-
 
 };
 
