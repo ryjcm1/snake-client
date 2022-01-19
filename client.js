@@ -13,9 +13,7 @@ const connect = function() {
     console.log("you are now connected!");
     conn.write("Name: JKC");
     // conn.write("Move: up")
-    setTimeout(()=> {
-      conn.write("Move: down"), 50;
-    });
+    
 
 
   });

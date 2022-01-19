@@ -1,11 +1,16 @@
 const { stdin } = require('process');
 
-const setupInput = function() {
+
+let connection;
+
+
+const setupInput = (conn) => {
   const stdin = process.stdin;
   stdin.setRawMode(true);
   stdin.setEncoding("utf8");
   stdin.resume();
-  return stdin;
+  
+  connection = conn;
 };
 
 const handleUserInput = function(key) {
@@ -14,6 +19,28 @@ const handleUserInput = function(key) {
     console.log("disconnecting...");
     process.exit();
   }
+
+  if (key === "w") {
+    console.log("moved up");
+    connection.write("Move: up");
+  }
+  if (key === "a") {
+    console.log("moved left");
+    connection.write("Move: left");
+
+  }
+  if (key === "s") {
+    console.log("moved down");
+    connection.write("Move: down");
+
+  }
+  if (key === "d") {
+    console.log("moved right");
+    connection.write("Move: right");
+
+  }
+
+
 };
 
 stdin.on("data", handleUserInput);
