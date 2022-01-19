@@ -12,6 +12,30 @@ const connect = function() {
   conn.on("connect", () =>{
     console.log("you are now connected!");
     conn.write("Name: JKC")
+    // conn.write("Move: up")
+    setTimeout(()=> {
+      conn.write("Move: down"), 50
+    })
+
+    setTimeout(()=> {
+      conn.write("Move: right"), 100
+    })
+
+    setTimeout(()=> {
+      conn.write("Move: down"), 150
+    })
+
+    setTimeout(()=> {
+      conn.write("Move: right"), 200
+    })
+    setTimeout(()=> {
+      conn.write("Move: down"), 250
+    })
+
+    setTimeout(()=> {
+      conn.write("Move: right"), 500
+    })
+
   });
 
   conn.on("data", (data) => {
