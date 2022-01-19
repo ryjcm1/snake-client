@@ -40,6 +40,18 @@ const handleUserInput = function(key) {
 
   }
 
+  if (key === "p") {
+    connection.write("Say: LOL");
+  }
+
+  if (key === "o") {
+    connection.write("Say: NOO");
+  }
+
+  if (key === "i") {
+    connection.write("Say: HII");
+  }
+
 
 };
 
