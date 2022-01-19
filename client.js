@@ -1,3 +1,4 @@
+const net = require("net");
 
 const connect = function() {
   const conn = net.createConnection({
@@ -10,6 +11,7 @@ const connect = function() {
 
   conn.on("connect", () =>{
     console.log("you are now connected!");
+    conn.write("Name: JKC")
   });
 
   conn.on("data", (data) => {
